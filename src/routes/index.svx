@@ -1,0 +1,17 @@
+<script>
+	import photoOfMe from "./_me.png";
+</script>
+
+
+# J / Jacob Babich
+![Photo of me]({photoOfMe})
+**Student at the University of Michigan-Dearborn**
+
+Cool facts about me:
+* I'm seeking a computer engineering and electrical engineering dual degree.
+
+Beware that this site is extremely likely to go out of date! I'd like to keep it updated but that might not be a high priority.
+
+---
+
+*This website's source code is available on [GitHub](https://github.com/babichjacob/university-website)*
