@@ -1,3 +1,4 @@
+const imagetools = require('vite-imagetools');
 const { mdsvex } = require("mdsvex");
 const mdsvexConfig = require("./mdsvex.config.cjs");
 const sveltePreprocess = require('svelte-preprocess');
@@ -12,9 +13,7 @@ module.exports = {
 	preprocess: [
 		mdsvex(mdsvexConfig),
 		sveltePreprocess({
-			defaults: {
-				style: "postcss",
-			},
+			postcss: true,
 		}),
 	],
 	kit: {
@@ -24,9 +23,14 @@ module.exports = {
 		target: '#svelte',
 
 		vite: {
+			plugins: [
+				imagetools({
+					force: true
+				}),
+			],
 			ssr: {
 				noExternal: Object.keys(pkg.dependencies || {})
-			}
-		}
-	}
+			},
+		},
+	},
 };
