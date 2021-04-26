@@ -13,6 +13,7 @@ module.exports = {
 		}],
 	],
 	layout: {
-		_: "./src/routes/_centered-prose.svelte",
+		_: "./src/lib/Prose.svelte",
+		blog: "./src/routes/blog/_layout.svelte",
 	},
 };

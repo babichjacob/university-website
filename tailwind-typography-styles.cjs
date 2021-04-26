@@ -3,6 +3,7 @@ module.exports = (_theme) => ({
 		css: {
 			color: false,
 			fontWeight: 300,
+			maxWidth: false,
 			"@apply text-on-primary": "",
 
 			a: {
