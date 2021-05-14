@@ -1,10 +1,11 @@
 <script>
-	import { author, shortName as siteTitle } from "./_site.config.js";
 	import { page } from "$app/stores";
+	import { author, shortName as siteTitle } from "../lib/site.config.js";
 
 	import "../app.postcss";
 	
 	// TODO: doesn't actually use ico format
+	// Experiment with vite-imagetools custom output support
 	import faviconIco from "./_favicon.png?width=32&height=32&format=ico";
 	import favicon from "./_favicon.png?width=128&height=128&format=png";
 	import appleTouchIcon from "./_favicon.png?width=180&height=180&format=png";
@@ -26,7 +27,7 @@
 	];
 
 	// TODO: based on the page
-	import image from "./_me.png";
+	import image from "$lib/babichjacob.png";
 	const imageAlt = "A photo of me";
 	
 	const pageTitle = "What is this?";
@@ -78,25 +79,28 @@
 	{/each}
 </svelte:head>
 
-<!-- Attribution: https://tailblocks.cc/ -->
-<header class="text-on-primary-weak py-8 flex justify-center">
-	<div class="w-full max-w-prose flex flex-wrap flex-col md:flex-row items-center">
-		<nav class="flex flex-wrap items-center text-base justify-center">
-			<a href="/" class="mr-8 font-medium text-xl border-b-2 border-transparent hover:text-accent hover:border-accent">{siteTitle}</a>
-			{#each links as link}
-				<a href={link.route} class="ml-8" class:text-accent={$page.path.startsWith(link.route)} class:hover:text-accent={!$page.path.startsWith(link.route)}>{link.name}</a>
-			{/each}
-		</nav>
-	</div>
-</header>
+<div class="relative flex-1 flex flex-col">
+	<!-- Attribution: https://tailblocks.cc/ -->
+	<header class="sticky z-10 top-0 bg-primary not-supports-backdrop-filter:bg-opacity-98 supports-backdrop-filter:bg-opacity-75 backdrop-filter backdrop-blur-lg backdrop-saturate-150 text-on-primary-weak py-8 flex justify-center">
+		<div class="w-full max-w-prose flex flex-wrap flex-col md:flex-row items-center">
+			<nav class="flex flex-wrap items-center text-base justify-center">
+				<a href="/" class="mr-8 font-medium text-xl border-b-2 border-transparent hover:text-accent hover:border-accent">{siteTitle}</a>
+				{#each links as link}
+					<a href={link.route} class="ml-8" class:text-accent={$page.path.startsWith(link.route)} class:hover:text-accent={!$page.path.startsWith(link.route)}>{link.name}</a>
+				{/each}
+			</nav>
+		</div>
+	</header>
 
-<main class="flex-1 py-8 flex flex-col items-center">
-	<slot />
-</main>
 
-<!-- Attribution: https://tailblocks.cc/ -->
-<footer class="bg-primary-dark text-on-primary-weak py-8 flex justify-center">
-	<div class="w-full max-w-prose">
-    	<p class="text-sm text-on-primary-weak">© {new Date().getFullYear()} {author}</p>
-	</div>
-</footer>
+	<main class="py-8 flex flex-1 flex-col items-center">
+		<slot />
+	</main>
+
+	<!-- Attribution: https://tailblocks.cc/ -->
+	<footer class="bg-primary-dark text-on-primary-weak py-8 flex justify-center">
+		<div class="w-full max-w-prose">
+			<p class="text-sm text-on-primary-weak">© {new Date().getFullYear()} {author}</p>
+		</div>
+	</footer>
+</div>

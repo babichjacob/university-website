@@ -73,5 +73,16 @@ module.exports = {
 			},
 			fallback: "compact",
 		}),
+		themeVariants({
+			themes: {
+				"not-supports-backdrop-filter": {
+					mediaQuery: "@supports not (backdrop-filter: blur(1px)",
+				},
+				"supports-backdrop-filter": {
+					mediaQuery: "@supports (backdrop-filter: blur(1px)",
+				},
+			},
+			fallback: "compact",
+		}),
 	],
 };

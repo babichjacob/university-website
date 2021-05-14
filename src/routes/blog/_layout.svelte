@@ -1,10 +1,12 @@
 <script>
-	import { authors } from "../_site.config.js";
+	import { authors } from "$lib/site.config.js";
 
 	export let author;
 	export let created;
 	export let title;
 	export let subtitle;
+	export let photo;
+	export let component;
 </script>
 
 <div class="w-full max-w-prose items-center pt-12">
@@ -21,3 +23,12 @@
 <article class="prose w-full max-w-prose py-12">
 	<slot />
 </article>
+
+{#if component}
+	<svelte:component this={component} prop={"Value"} />
+{/if}
+
+
+{#if photo}
+	<img src={photo} />
+{/if}

@@ -2,7 +2,7 @@ import type { RequestHandler } from "@sveltejs/kit";
 
 import colors from "tailwindcss/colors.js";
 
-import { author, description, lang, name, shortName } from './_site.config.js';
+import { author, description, lang, name, shortName } from '../lib/site.config.js';
 
 import icon192 from './_favicon.png?width=192&height=192&format=png';
 import icon512 from './_favicon.png?width=512&height=512&format=png';
