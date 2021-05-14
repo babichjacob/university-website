@@ -1,4 +1,4 @@
-import babichjacob from "./_me.png";
+import babichjacob from "./babichjacob.png";
 
 export const author = "J / Jacob Babich";
 export const shortName = "World's Best Blog";
